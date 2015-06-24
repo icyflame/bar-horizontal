@@ -6,11 +6,17 @@ var barHorizontal = require('./');
 var cli = meow({
 	help: [
 		'Usage',
-		'  $ bar-horizontal [input]',
+		'  $ bar-horizontal input-array',
 		'',
 		'Examples',
-		'  $ bar-horizontal',
+		'  $ bar-horizontal 1 2 3 4',
+    '   : ▇▇▇▇▇▇▇▇ 10%',
+    '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%',
+    '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 30%',
+    '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 40%',
+
+
 	].join('\n')
 });
 
-console.log(barHorizontal(cli.input[0] || 'unicorns'));
+barHorizontal(cli.input);

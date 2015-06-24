@@ -14,9 +14,13 @@ $ npm install --save bar-horizontal
 
 ```js
 var barHorizontal = require('bar-horizontal');
-data_array = [1, 2, 3, 4, 5, 6];
-barHorizontal(data_array);
-//=> unicorns & rainbows
+barHorizontal([6, 5, 4, 3, 2]);
+// => Prints this on the console :-
+: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 30%
+: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 25%
+: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%
+: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 15%
+: ▇▇▇▇▇▇▇▇▇ 10%
 ```
 
 
@@ -29,18 +33,22 @@ $ npm install --global bar-horizontal
 $ bar-horizontal --help
 
   Usage
-    bar-horizontal [input]
+    $ bar-horizontal input-array
 
-  Example
-    bar-horizontal
+  Examples
+    $ bar-horizontal 1 2 3 4
+     : ▇▇▇▇▇▇▇▇ 10%
+     : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%
+     : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 30%
+     : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 40%
 ```
 
 
 ## API
 
-### barHorizontal(input, [options])
+### barHorizontal(input_arr)
 
-#### input
+#### input_arr
 
 *Required*  
 Type: `Array of Numbers`
