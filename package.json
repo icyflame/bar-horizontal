@@ -1,0 +1,36 @@
+{
+  "name": "bar-horizontal",
+  "version": "0.0.0",
+  "description": "My perfect module",
+  "license": "MIT",
+  "repository": "icyflame/bar-horizontal",
+  "author": {
+    "name": "Siddharth Kannan",
+    "email": "kannan.siddharth12@gmail.com",
+    "url": "icyflame.github.io"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    ""
+  ],
+  "dependencies": {
+    "figures": "^1.3.5",
+    "meow": "^3.0.0",
+    "window-size": "^0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
