@@ -23,7 +23,13 @@
   "keywords": [
     "cli-app",
     "cli",
-    ""
+    "bar",
+    "graph",
+    "barchart",
+    "terminal",
+    "horizontal",
+    "overflow",
+    "avoided"
   ],
   "dependencies": {
     "fast-stats": "0.0.2",
