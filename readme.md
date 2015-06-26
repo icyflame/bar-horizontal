@@ -21,6 +21,21 @@ barHorizontal([6, 5, 4, 3, 2]);
 : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%
 : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 15%
 : ▇▇▇▇▇▇▇▇▇ 10%
+
+
+input_obj = {
+  'first task': 20,
+  'second task': 40,
+  'a really really long label!': 90,
+  'short one': 20
+};
+
+barHorizontal(input_obj, {labels: true});
+// => Prints this on the console :-
+first task                  : ▇▇▇▇ 12%
+second task                 : ▇▇▇▇▇▇▇▇▇ 24%
+a really really long label! : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 53%
+short one                   : ▇▇▇▇ 12%
 ```
 
 
@@ -46,14 +61,22 @@ $ bar-horizontal --help
 
 ## API
 
-### barHorizontal(input_arr)
+### barHorizontal(input_obj, [options])
 
-#### input_arr
+#### input_obj
 
 *Required*  
-Type: `Array of Numbers`
-
+Type: `Array of Numbers`  
 The array whose bar chart will be created.
+
+#### options
+
+##### labels
+
+*Optional*  
+Type: `Boolean`  
+Default: `false`  
+Labels to be shown or not
 
 ## License
 
