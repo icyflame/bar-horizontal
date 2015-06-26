@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (data_array, opts) {
+module.exports = function (input_obj, opts) {
 
 	var barChar = require('figures').square;
 	var Stats = require('fast-stats').Stats;
@@ -9,12 +9,12 @@ module.exports = function (data_array, opts) {
 	var percentage = [];
 	var barWidths = [];
 
-	for (var i in data_array) {
-		total_sum += data_array[i];
+	for (var i in input_obj) {
+		total_sum += input_obj[i];
 	}
 
-	for (var i in data_array) {
-		percentage.push((data_array[i] / total_sum) * 100);
+	for (var i in input_obj) {
+		percentage.push((input_obj[i] / total_sum) * 100);
 	}
 
 	var max_percentage = (new Stats().push(percentage)).range()[1];
@@ -24,12 +24,12 @@ module.exports = function (data_array, opts) {
 	var maxLabelLength = 0;
 
 	if (labelsTrue) {
-		for (var i in data_array) {
+		for (var i in input_obj) {
 			maxLabelLength = (i.toString().length > maxLabelLength)
 			? i.toString().length : maxLabelLength;
 		}
 
-		for (var i in data_array) {
+		for (var i in input_obj) {
 			var padLength = maxLabelLength - i.toString().length + 1;
 			fixedLabels.push(i + (padLength > 0
 				? new Array(padLength).join(' ') : ''));
