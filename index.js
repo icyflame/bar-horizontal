@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (data_array, str, opts) {
+module.exports = function (data_array, opts) {
 
 	var barChar = require('figures').square;
 	var Stats = require('fast-stats').Stats;
@@ -19,12 +19,33 @@ module.exports = function (data_array, str, opts) {
 
 	var max_percentage = (new Stats().push(percentage)).range()[1];
 
+	var fixedLabels = new Array();
+	var labelsTrue = opts ? opts.labels : false;
+	var maxLabelLength = 0;
+
+	if (labelsTrue) {
+		for (var i in data_array) {
+			maxLabelLength = (i.toString().length > maxLabelLength)
+			? i.toString().length : maxLabelLength;
+		}
+
+		for (var i in data_array) {
+			var padLength = maxLabelLength - i.toString().length + 1;
+			fixedLabels.push(i + (padLength > 0
+				? new Array(padLength).join(' ') : ''));
+		}
+	}
+
+	maxBarWidth = labelsTrue ? (maxBarWidth - maxLabelLength) : maxBarWidth;
+
 	for(var i in percentage){
 		barWidths.push(Math.ceil(percentage[i] / max_percentage * maxBarWidth))
 	}
 
 	for(var i in percentage){
-		console.log(': ' + new Array(barWidths[i]).join(barChar) + ' ' + percentage[i].toFixed() + '%');
+		console.log((labelsTrue ? fixedLabels[i] : '') + ' : '
+		+ new Array(barWidths[i]).join(barChar) + ' '
+		+ percentage[i].toFixed() + '%');
 	}
 
 };
