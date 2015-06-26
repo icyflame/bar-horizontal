@@ -4,7 +4,7 @@ module.exports = function (data_array, opts) {
 	var barChar = require('figures').square;
 	var Stats = require('fast-stats').Stats;
 	var width = require('window-size').width;
-	var maxBarWidth = width - 20;
+	var maxBarWidth = width - (width > 20 ? 20 : 1);
 	var total_sum = 0.;
 	var percentage = [];
 	var barWidths = [];
@@ -39,13 +39,21 @@ module.exports = function (data_array, opts) {
 	maxBarWidth = labelsTrue ? (maxBarWidth - maxLabelLength) : maxBarWidth;
 
 	for (var i in percentage) {
-		barWidths.push(Math.ceil(percentage[i] / max_percentage * maxBarWidth))
+		var potentialWidth = Math.ceil(percentage[i] / max_percentage * maxBarWidth);
+		barWidths.push(potentialWidth < 0 ? 0 : potentialWidth);
 	}
 
 	for (var i in percentage) {
 		console.log((labelsTrue ? fixedLabels[i] : '') + ' : '
 		+ new Array(barWidths[i]).join(barChar) + ' '
 		+ percentage[i].toFixed() + '%');
+	}
+
+	for (var i in barWidths) {
+		if (barWidths[i] == 0) {
+			console.log("This terminal's width is too less!" + (labelsTrue ? ' You can remove labels, and try again!' : ''));
+			break;
+		}
 	}
 
 };
