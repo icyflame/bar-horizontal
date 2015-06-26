@@ -9,11 +9,11 @@ module.exports = function (data_array, opts) {
 	var percentage = [];
 	var barWidths = [];
 
-	for(var i in data_array){
+	for (var i in data_array) {
 		total_sum += data_array[i];
 	}
 
-	for(var i in data_array){
+	for (var i in data_array) {
 		percentage.push((data_array[i] / total_sum) * 100);
 	}
 
@@ -38,11 +38,11 @@ module.exports = function (data_array, opts) {
 
 	maxBarWidth = labelsTrue ? (maxBarWidth - maxLabelLength) : maxBarWidth;
 
-	for(var i in percentage){
+	for (var i in percentage) {
 		barWidths.push(Math.ceil(percentage[i] / max_percentage * maxBarWidth))
 	}
 
-	for(var i in percentage){
+	for (var i in percentage) {
 		console.log((labelsTrue ? fixedLabels[i] : '') + ' : '
 		+ new Array(barWidths[i]).join(barChar) + ' '
 		+ percentage[i].toFixed() + '%');
