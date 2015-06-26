@@ -1,6 +1,6 @@
 {
   "name": "bar-horizontal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Create beautiful horizontal charts, that fit your terminal.",
   "license": "MIT",
   "repository": "icyflame/bar-horizontal",
