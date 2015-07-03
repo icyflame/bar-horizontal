@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-'use strict';
-var meow = require('meow');
-var barHorizontal = require('./');
+'use strict'
+var meow = require('meow')
+var barHorizontal = require('./')
 
 var cli = meow({
-	help: [
-		'Usage',
-		'  $ bar-horizontal input-array',
-		'',
-		'Examples',
-		'  $ bar-horizontal 1 2 3 4',
+  help: [
+    'Usage',
+    '  $ bar-horizontal input-array',
+    '',
+    'Examples',
+    '  $ bar-horizontal 1 2 3 4',
     '   : ▇▇▇▇▇▇▇▇ 10%',
     '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%',
     '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 30%',
     '   : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 40%'
-	].join('\n')
-});
+  ].join('\n')
+})
 
-barHorizontal(cli.input, cli.flags);
+barHorizontal(cli.input, cli.flags)
