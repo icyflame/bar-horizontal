@@ -3,11 +3,14 @@ module.exports = function (input_obj, opts) {
   var barChar = require('figures').square
   var Stats = require('fast-stats').Stats
   var width = require('window-size').width
+  var ObjectValues = require('object.values')
+
   var maxBarWidth = width - (width > 20 ? 20 : 1)
   var total_sum = 0.0
   var percentage = []
   var barWidths = []
   var index
+  var values = ObjectValues(input_obj)
 
   for (index in input_obj) {
     total_sum += input_obj[index]
@@ -45,8 +48,8 @@ module.exports = function (input_obj, opts) {
 
   percentage.forEach(function (element, index, array) {
     console.log((labelsTrue ? fixedLabels[index] : '') + ' : ' +
-      new Array(barWidths[index]).join(barChar) + ' ' +
-      element.toFixed() + '%')
+      new Array(barWidths[index]).join(barChar) + '  ' +
+      values[index].toFixed(2))
   })
 
   for (index in barWidths) {
