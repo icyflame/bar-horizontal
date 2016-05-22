@@ -12,6 +12,14 @@ module.exports = function (input_obj, opts) {
   var index
   var values = ObjectValues(input_obj)
 
+	var printValues = false;
+
+	if (opts !== undefined) {
+		if (opts.values === 'true' || opts.values === true) {
+			printValues = true;
+		}
+	}
+
   for (index in input_obj) {
     total_sum += input_obj[index]
   }
@@ -49,7 +57,7 @@ module.exports = function (input_obj, opts) {
   percentage.forEach(function (element, index, array) {
     console.log((labelsTrue ? fixedLabels[index] : '') + ' : ' +
       new Array(barWidths[index]).join(barChar) + '  ' +
-      values[index].toFixed(2))
+      (printValues ? (values[index].toFixed(2)) : (element.toFixed(2) + "%")))
   })
 
   for (index in barWidths) {

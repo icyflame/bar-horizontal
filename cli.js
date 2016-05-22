@@ -7,6 +7,7 @@ var cli = meow({
   help: [
     'Usage',
     '  $ bar-horizontal input-array',
+		'  $ bar-horizontal input-array --values',
     '',
     'Examples',
     '  $ bar-horizontal 1 2 3 4',
@@ -17,4 +18,6 @@ var cli = meow({
   ].join('\n')
 })
 
+console.log(cli.input);
+console.log(cli.flags);
 barHorizontal(cli.input, cli.flags)

@@ -49,6 +49,7 @@ $ bar-horizontal --help
 
   Usage
     $ bar-horizontal input-array
+    $ bar-horizontal input-array --values
 
   Examples
     $ bar-horizontal 1 2 3 4
