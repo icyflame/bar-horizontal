@@ -62,7 +62,9 @@ module.exports = function (input_obj, opts) {
 
   for (index in barWidths) {
     if (barWidths[index] === 0) {
-      console.log("This terminal's width is too less!" + (labelsTrue ? ' You can remove labels, and try again!' : ''))
+      if (opts.warnings) {
+        console.log("This terminal's width is too less!" + (labelsTrue ? ' You can remove labels, and try again!' : ''))
+      }
       break
     }
   }
