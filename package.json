@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "exit 0"
+    "test": "mocha"
   },
   "files": [
     "index.js",

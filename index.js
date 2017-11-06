@@ -19,8 +19,8 @@ module.exports = function (inputObj, opts) {
 
   var printValues = opts.values;
 
-  totalSum = _.sum(inputObj);
-  percentage = _.map(inputObj, (elem) => elem / totalSum * 100);
+  totalSum = _.sum(values);
+  percentage = _.map(values, (elem) => elem / totalSum * 100);
   var maxPercentage = _.max(percentage);
 
   var fixedLabels = [];
@@ -33,7 +33,7 @@ module.exports = function (inputObj, opts) {
     maxLabelLength = _.max(_.map(keys, e => e.toString().length));
     fixedLabels = _.map(inputObj, (value, key) => {
       var padLength = maxLabelLength - key.toString().length + 1;
-      return padLength > 0 ? (new Array(padLength).join(' ')) : '';
+      return padLength > 0 ? (key + new Array(padLength).join(' ')) : '';
     });
   }
 
