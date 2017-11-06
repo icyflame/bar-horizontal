@@ -18,6 +18,4 @@ var cli = meow({
   ].join('\n')
 })
 
-console.log(cli.input);
-console.log(cli.flags);
 barHorizontal(cli.input, cli.flags)

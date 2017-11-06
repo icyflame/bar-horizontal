@@ -79,6 +79,13 @@ Type: `Boolean`
 Default: `false`  
 Labels to be shown or not
 
+##### warnings
+
+*Optional*
+Type: `Boolean`
+Default: `false`
+Whether or not to show warnings (eg. 'missing/invalid input')
+
 ## License
 
 MIT © [Siddharth Kannan](http://icyflame.github.io)
