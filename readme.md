@@ -86,6 +86,13 @@ Type: `Boolean`
 Default: `false`
 Whether or not to show warnings (eg. 'missing/invalid input')
 
+##### ascii
+
+*Optional*
+Type: `Boolean`
+Default: `false`
+Whether or not to use the `=` when printing the bar graph(s) to stdout. If this argument is missing/falsy, the `|` character will be used instead.
+
 ## License
 
 MIT © [Siddharth Kannan](http://icyflame.github.io)
