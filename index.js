@@ -1,6 +1,9 @@
 'use strict'
 module.exports = function (input_obj, opts) {
-  var barChar = require('figures').square
+  // Ensure that `opts` is always an object.
+  opts = (opts && typeof opts === 'object') ? opts : {}
+
+  var barChar = (opts.ascii === true || opts.ascii === 'true') ? '=' : require('figures').square
   var Stats = require('fast-stats').Stats
   var width = require('window-size').width
   var ObjectValues = require('object.values')
@@ -11,14 +14,7 @@ module.exports = function (input_obj, opts) {
   var barWidths = []
   var index
   var values = ObjectValues(input_obj)
-
-  var printValues = false;
-
-  if (opts !== undefined) {
-	  if (opts.values === 'true' || opts.values === true) {
-		  printValues = true;
-	  }
-  }
+  var printValues = (opts.values === 'true' || opts.values === true);
 
   // TODO: Oneliner
   for (index in input_obj) {
