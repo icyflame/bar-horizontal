@@ -5,7 +5,7 @@ module.exports = function (inputObj, opts) {
   // Ensure that `opts` is always an object.
   opts = (opts && typeof opts === 'object') ? opts : {};
 
-  var width = require('window-size').width;
+  var width = (opts.width && typeof opts.width === 'number') ? opts.width : require('window-size').width;
   var barChar = opts.ascii ? '=' : require('figures').square;
 
   var maxBarWidth = width - (width > 20 ? 20 : 1);
