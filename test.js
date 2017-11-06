@@ -15,6 +15,32 @@ var input_obj = {
 	'short one': 20
 };
 
+// there are a total of 4 options, generate all combinations and strings
+
+var getStrings = function (n) {
+  if (n == 1) {
+    return ['0', '1'];
+  }
+
+  var base = getStrings(n-1);
+
+  var res = [ ];
+  for (var str in base) {
+    res.push(base[str] + '0');
+    res.push(base[str] + '1');
+  }
+
+  return res;
+}
+
+var numOpt = 4;
+var opts = getStrings(numOpt);
+
+console.log(opts);
+console.log(getStrings(1));
+console.log(getStrings(2));
+console.log(getStrings(3));
+
 line();
 console.log("Bar with labels and values");
 horizontal(input_obj, {labels: true, values: true});
