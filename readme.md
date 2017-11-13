@@ -88,16 +88,16 @@ Labels to be shown or not
 
 ##### warnings
 
-*Optional*
-Type: `Boolean`
-Default: `false`
+*Optional*  
+Type: `Boolean`  
+Default: `false`  
 Whether or not to show warnings (eg. 'missing/invalid input')
 
 ##### ascii
 
-*Optional*
-Type: `Boolean`
-Default: `false`
+*Optional*  
+Type: `Boolean`  
+Default: `false`  
 Whether or not to use the `=` when printing the bar graph(s) to stdout.
 
 By default, this module will use the
@@ -106,9 +106,9 @@ character from [figures](https://www.npmjs.com/package/figures).
 
 ##### width
 
-*Optional*
-Type: `Number`
-Default: The width of the present terminal
+*Optional*  
+Type: `Number`  
+Default: The width of the present terminal  
 If supplied, the printed bar graph will look good on a terminal of the supplied
 width's length.
 
