@@ -45,7 +45,8 @@ short one                   : ▇▇▇▇ 12%
 $ npm install --global bar-horizontal
 ```
 ```
-$ bar-horizontal --help
+
+  Create beautiful horizontal charts, that fit your terminal.
 
   Usage
     $ bar-horizontal input-array
@@ -57,6 +58,12 @@ $ bar-horizontal --help
      : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 20%
      : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 30%
      : ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 40%
+
+    $ bar-horizontal 1 2 3 4 --ascii 
+     : ======  10.00%
+     : =============  20.00%
+     : ====================  30.00%
+     : ===========================  40.00%
 ```
 
 
@@ -91,7 +98,19 @@ Whether or not to show warnings (eg. 'missing/invalid input')
 *Optional*
 Type: `Boolean`
 Default: `false`
-Whether or not to use the `=` when printing the bar graph(s) to stdout. If this argument is missing/falsy, the `|` character will be used instead.
+Whether or not to use the `=` when printing the bar graph(s) to stdout.
+
+By default, this module will use the
+[square](https://github.com/sindresorhus/figures/blob/dfeeb1c1733a9fe6f6b13d25f37c440ba6750c0e/index.js#L10)
+character from [figures](https://www.npmjs.com/package/figures).
+
+##### width
+
+*Optional*
+Type: `Number`
+Default: The width of the present terminal
+If supplied, the printed bar graph will look good on a terminal of the supplied
+width's length.
 
 ## License
 
