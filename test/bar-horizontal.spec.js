@@ -4,60 +4,101 @@
 // Node
 const assert = require( 'assert' );
 
+// Vendor
+const figures = require( 'figures' );
+const capcon = require( 'capture-console' );
+
 // Project
 const barHorizontal = require( '../' );
+
 
 // --------------------------------------------------
 // DECLARE TESTS
 // --------------------------------------------------
 describe( 'barHorizontal', function() {
-  // Ensure that module correctly exports a function (eg. module is 'require-able').
-  xit( 'Should export a function.', function() {
-
+  it( 'Should export a function.', function() {
+    assert.equal( typeof barHorizontal, 'function' );
   } );
 
-  // Ensure that function correctly exits when invoked with a missing/invalid inputObj.
-  xit( 'Should exit when invoked with a missing/invalid `inputObj`.', function() {
 
+  xit( 'Should exit when invoked with 0x arguments.', function() {
+    /// TODO
   } );
 
-  // Ensure that function can be invoked with 1x argument (eg. inputObj).
-  xit( 'Should run as normal when invoked with a single, valid argument.', function() {
 
+  xit( 'Should exit when invoked with 1x invalid argument.', function() {
+    /// TODO
   } );
 
-  // Ensure that function can be invoked with 2x arguments (eg. inputObj, options).
-  xit( 'Should accept an `options` object as an optional second argument.', function() {
 
+  xit( 'Should exit when invoked with an empty array argument.', function() {
+    /// TODO
   } );
 
-  // Ensure that 'labels' are NOT displayed by default.
-  xit( 'Should not display labels by default.', function() {
 
+  it( 'Should run as normal when invoked with 1x non-empty array argument.', function() {
+    assert.doesNotThrow( function() {
+      barHorizontal( [ 1,2,3 ] );
+    } );
   } );
 
-  // Ensure that 'labels' are displayed when options contains the labels: true key/value pair.
-  xit( 'Should display labels when invoked with the `labels: true` key/value pair.', function() {
 
+  it( 'Should run as normal when invoked with a 1x object argument', function() {
+    assert.doesNotThrow( function() {
+      barHorizontal( { a: 1, b: 2, c: 3 } );
+    } );
   } );
 
-  // Ensure that 'warnings' are NOT displayed by default.
+
+  it( 'Should accept an `options` object as an optional second argument.', function() {
+    assert.doesNotThrow( function() {
+      return barHorizontal( [ 1,2,3 ], {} );
+    } );
+  } );
+
+
+  it( 'Should not display labels by default.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( { a: 1, b: 2, c: 3 } );
+    } );
+
+    assert.equal( stdout.indexOf( 'a' ), -1 );
+  } );
+
+
+  it( 'Should display labels when invoked with the `labels: true` key/value pair.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( { a: 1, b: 2, c: 3 }, { labels: true } );
+    } );
+
+    assert.ok( stdout.indexOf( 'a' ) !== -1 );
+  } );
+
+
   xit( 'Should not display warnings by default.', function() {
-
+    /// TODO
   } );
 
-  // Ensure that 'warnings' are displayed when options contains the warnings: true key/value pair.
+
   xit( 'Should display warnings when invoked with the `warnings: true` key/value pair.', function() {
-
+    /// TODO
   } );
 
-  // Ensure that the bar graphs are composed of the square character by default.
-  xit( 'Should create bar graphs using the `square` character by default.', function() {
 
+  it( 'Should create bar graphs using the `square` character by default.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( [ 1, 2, 3 ]  );
+    } );
+
+    assert.ok( stdout.indexOf( figures.square ) !== -1 );
   } );
 
-  // Ensure that the bar graphs are composed of the '=' character when options contains the ascii: true key/value pair.
-  xit( 'Should create bar graphs using the "=" character when invoked with the `ascii: true` key/value pair.', function() {
 
+  it( 'Should create bar graphs using the "=" character when invoked with the `ascii: true` key/value pair.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( [ 1, 2, 3 ], { ascii: true } );
+    } );
+
+    assert.ok( stdout.indexOf( '=' ) !== -1 );
   } );
 } );
