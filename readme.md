@@ -112,6 +112,9 @@ Default: The width of the present terminal
 If supplied, the printed bar graph will look good on a terminal of the supplied
 width's length.
 
+## Testing
+This module uses the [mocha](https://mochajs.org/) test framework. The test suite can be run by invoking `npm test` from the root directory.
+
 ## License
 
 MIT © [Siddharth Kannan](http://icyflame.github.io)
