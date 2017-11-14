@@ -21,18 +21,31 @@ describe( 'barHorizontal', function() {
   } );
 
 
-  xit( 'Should exit when invoked with 0x arguments.', function() {
-    /// TODO
+  it( 'Should exit when invoked with 0x arguments.', function() {
+    assert.throws( function() {
+      barHorizontal();
+    } );
   } );
 
 
-  xit( 'Should exit when invoked with 1x invalid argument.', function() {
-    /// TODO
+  it( 'Should exit when invoked with 1x invalid argument.', function() {
+    assert.throws( function() {
+      barHorizontal( 'This is an invalid argument.' );
+    } );
   } );
 
 
-  xit( 'Should exit when invoked with an empty array argument.', function() {
-    /// TODO
+  it( 'Should exit when invoked with an empty array argument.', function() {
+    assert.throws( function() {
+      barHorizontal( [] );
+    } );
+  } );
+
+
+  it( 'Should exit when invoked with an empty object argument.', function() {
+    assert.throws( function() {
+      barHorizontal( {} );
+    } );
   } );
 
 
@@ -76,18 +89,18 @@ describe( 'barHorizontal', function() {
 
 
   xit( 'Should not display warnings by default.', function() {
-    /// TODO
+    /// TODO: Unclear how to test for this, as warnings may not be triggered even when enabled.
   } );
 
 
   xit( 'Should display warnings when invoked with the `warnings: true` key/value pair.', function() {
-    /// TODO
+    /// TODO: Unclear how to test for this, as warnings may not be triggered even when enabled.
   } );
 
 
   it( 'Should create bar graphs using the `square` character by default.', function() {
     let stdout = capcon.captureStdout( function() {
-      return barHorizontal( [ 1, 2, 3 ]  );
+      return barHorizontal( [ 0, 1, 2, 3 ]  );
     } );
 
     assert.ok( stdout.indexOf( figures.square ) !== -1 );
