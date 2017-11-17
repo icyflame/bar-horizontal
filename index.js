@@ -53,7 +53,7 @@ module.exports = function (inputObj, opts) {
     console.log(elementLine);
   });
 
-  if (_.filter(values, 0).length > 0 && opts.warnings) {
+  if (_.filter(barWidths, x => x == 0).length > 0 && opts.warnings) {
     var message = "This terminal's width is too less!";
 
     if (labelsTrue) {
