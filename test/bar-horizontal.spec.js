@@ -88,13 +88,21 @@ describe( 'barHorizontal', function() {
   } );
 
 
-  xit( 'Should not display warnings by default.', function() {
-    /// TODO: Unclear how to test for this, as warnings may not be triggered even when enabled.
+  it( 'Should not display warnings by default.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( [ 0, 1, 2, 3 ], { width: 0 } );
+    } );
+
+    assert.equal( stdout.indexOf( 'too less' ), -1 ); /// TODO: Make less brittle: what if the 'warning string' changes?
   } );
 
 
-  xit( 'Should display warnings when invoked with the `warnings: true` key/value pair.', function() {
-    /// TODO: Unclear how to test for this, as warnings may not be triggered even when enabled.
+  it( 'Should display warnings when invoked with the `warnings: true` key/value pair.', function() {
+    let stdout = capcon.captureStdout( function() {
+      return barHorizontal( [ 0, 1, 2, 3 ], { width: 0, warnings: true } );
+    } );
+
+    assert.ok( stdout.indexOf( 'too less' ) !== -1 ); /// TODO: Make less brittle: what if the 'warning string' changes?
   } );
 
 
