@@ -2,13 +2,8 @@
 var _ = require('lodash');
 
 module.exports = function (inputObj, opts) {
-  // Throw error if `inputObj` does not exist or is not an array/object.
-  if ( !inputObj || typeof inputObj !== 'object'  ) {
-    throw new Error( 'Whoops! Please ensure that `barHorizontal()` is invoked with either an array or object.' );
-  }
-
-  // Throw error if `inputObj` is an empty array or key-less object.
-  if ( ( typeof inputObj.length !== 'undefined' && !inputObj.length ) || ( typeof inputObj.length === 'undefined' && !Object.keys( inputObj ).length ) ) {
+  // Throw error if `inputObj` does not exist, is an invalid type, or is empty.
+  if ( typeof inputObj !== 'object' || inputObj === null || Object.keys( inputObj ).length === 0 ) {
     throw new Error( 'Whoops! Please ensure that `barHorizontal()` is invoked with a non-empty array or object.' );
   }
 
