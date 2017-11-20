@@ -112,6 +112,16 @@ Default: The width of the present terminal
 If supplied, the printed bar graph will look good on a terminal of the supplied
 width's length.
 
+
+##### noPrint
+
+*Optional*  
+Type: `Boolean`  
+Default: `false`  
+Whether `barHorizontal` should print the results to the console or not. If
+`noPrint` is set, then the function will return the string and print nothing to
+the console
+
 ## Testing
 This module uses the [mocha](https://mochajs.org/) test framework. The test suite can be run by invoking `npm test` from the root directory.
 

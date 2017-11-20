@@ -68,5 +68,9 @@ module.exports = function (inputObj, opts) {
     results.push(message);
   }
 
-  return results.join('\n');
+  if (!opts.noPrint) {
+    console.log(results.join('\n'));
+  } else {
+    return results.join('\n');
+  }
 };

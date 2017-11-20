@@ -24,4 +24,4 @@ var cli = meow({
   ].join('\n')
 });
 
-console.log(barHorizontal(cli.input, cli.flags));
+barHorizontal(cli.input, cli.flags);
