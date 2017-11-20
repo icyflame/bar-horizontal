@@ -2,6 +2,11 @@
 var _ = require('lodash');
 
 module.exports = function (inputObj, opts) {
+  // Throw error if `inputObj` does not exist, is an invalid type, or is empty.
+  if ( typeof inputObj !== 'object' || inputObj === null || Object.keys( inputObj ).length === 0 ) {
+    throw new Error( 'Whoops! Please ensure that `barHorizontal()` is invoked with a non-empty array or object.' );
+  }
+
   // Ensure that `opts` is always an object.
   opts = (opts && typeof opts === 'object') ? opts : {};
 
@@ -44,13 +49,13 @@ module.exports = function (inputObj, opts) {
     return (potentialWidth <= 1 ? 0 : potentialWidth);
   });
 
-  percentage.forEach(function (element, index, array) {
+  var results = _.map(percentage, function (element, index, array) {
     var elementLine = (labelsTrue ? fixedLabels[index] : '');
     elementLine += ' : ';
     elementLine += new Array(barWidths[index]).join(barChar);
     elementLine += '  ';
     elementLine += (printValues ? (values[index].toFixed(2)) : (element.toFixed(2) + '%'));
-    console.log(elementLine);
+    return elementLine;
   });
 
   if (_.filter(barWidths, x => x == 0).length > 0 && opts.warnings) {
@@ -60,6 +65,12 @@ module.exports = function (inputObj, opts) {
       message += ' You can remove labels, and try again!';
     }
 
-    console.log(message);
+    results.push(message);
+  }
+
+  if (!opts.noPrint) {
+    console.log(results.join('\n'));
+  } else {
+    return results.join('\n');
   }
 };
