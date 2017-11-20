@@ -22,6 +22,6 @@ var cli = meow({
     '   : ====================  30.00%',
     '   : ===========================  40.00%'
   ].join('\n')
-})
+});
 
-barHorizontal(cli.input, cli.flags)
+console.log(barHorizontal(cli.input, cli.flags));

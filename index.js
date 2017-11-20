@@ -49,13 +49,13 @@ module.exports = function (inputObj, opts) {
     return (potentialWidth <= 1 ? 0 : potentialWidth);
   });
 
-  percentage.forEach(function (element, index, array) {
+  var results = _.map(percentage, function (element, index, array) {
     var elementLine = (labelsTrue ? fixedLabels[index] : '');
     elementLine += ' : ';
     elementLine += new Array(barWidths[index]).join(barChar);
     elementLine += '  ';
     elementLine += (printValues ? (values[index].toFixed(2)) : (element.toFixed(2) + '%'));
-    console.log(elementLine);
+    return elementLine;
   });
 
   if (_.filter(barWidths, x => x == 0).length > 0 && opts.warnings) {
@@ -65,6 +65,8 @@ module.exports = function (inputObj, opts) {
       message += ' You can remove labels, and try again!';
     }
 
-    console.log(message);
+    results.push(message);
   }
+
+  return results.join('\n');
 };
