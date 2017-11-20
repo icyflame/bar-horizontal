@@ -6,7 +6,6 @@ const assert = require( 'assert' );
 
 // Vendor
 const figures = require( 'figures' );
-const capcon = require( 'capture-console' );
 
 // Project
 const barHorizontal = require( '../' );
