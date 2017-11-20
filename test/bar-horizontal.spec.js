@@ -13,7 +13,8 @@ const barHorizontal = require( '../' );
 
 // Constants
 const width = 100;
-const WIDTH_BASE = { width };
+const noPrint = true;
+const WIDTH_BASE = { width, noPrint };
 
 // --------------------------------------------------
 // DECLARE TESTS
@@ -85,7 +86,7 @@ describe( 'labels option', function () {
 
 
   it( 'Should display labels when invoked with the `labels: true` key/value pair.', function() {
-    let stdout = barHorizontal( { a: 1, b: 2, c: 3 }, { width, labels: true } );
+    let stdout = barHorizontal( { a: 1, b: 2, c: 3 }, { width, noPrint, labels: true } );
 
     assert.ok( stdout.indexOf( 'a' ) !== -1 );
   } );
@@ -94,14 +95,14 @@ describe( 'labels option', function () {
 describe( 'warnings option', function () {
 
   it( 'Should not display warnings by default.', function() {
-    let stdout = barHorizontal( [ 10, 100 ], { width: 4 } );
+    let stdout = barHorizontal( [ 10, 100 ], { width: 4, noPrint } );
 
     assert.equal( stdout.indexOf( 'too less' ), -1 ); /// TODO: Make less brittle: what if the 'warning string' changes?
   } );
 
 
   it( 'Should display warnings when invoked with the `warnings: true` key/value pair.', function() {
-    let stdout = barHorizontal( [ 10, 90 ], { width: 4, warnings: true } );
+    let stdout = barHorizontal( [ 10, 90 ], { width: 4, noPrint, warnings: true } );
 
     assert.ok( stdout.indexOf( 'too less' ) !== -1 ); /// TODO: Make less brittle: what if the 'warning string' changes?
   } );
@@ -117,7 +118,7 @@ describe( 'ascii option', function () {
 
 
   it( 'Should create bar graphs using the "=" character when invoked with the `ascii: true` key/value pair.', function() {
-    let stdout = barHorizontal( [ 1, 2, 3, 4 ], { ascii: true, width } );
+    let stdout = barHorizontal( [ 1, 2, 3, 4 ], { width, noPrint, ascii: true } );
 
     assert.ok( stdout.indexOf( '=' ) !== -1 );
   } );
