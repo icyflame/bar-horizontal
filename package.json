@@ -38,7 +38,6 @@
     "window-size": "0.1.4"
   },
   "devDependencies": {
-    "capture-console": "^1.0.1",
     "mocha": "*"
   }
 }
