@@ -38,6 +38,6 @@
     "window-size": "0.1.4"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^7.1.1"
   }
 }
