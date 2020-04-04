@@ -3,4 +3,4 @@ sudo: false
 before_install:
   - "npm install -g npm@latest"
 node_js:
-  - "6.10.3"
+  - "12.10.0"
