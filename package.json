@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "figures": "1.7.0",
-    "lodash": "4.17.4",
+    "lodash": ">=4.17.12",
     "meow": "3.7.0",
     "window-size": "0.1.4"
   },
