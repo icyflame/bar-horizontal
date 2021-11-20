@@ -73,6 +73,12 @@ describe( 'argument checking', function () {
       return barHorizontal( [ 1,2,3 ], WIDTH_BASE );
     } );
   } );
+
+  it( 'Should use width 80 when given width is not a number', function() {
+    assert.doesNotThrow( function() {
+      return barHorizontal( [ 1,2,3 ], { width: 'not a number', noPrint } );
+    } );
+  } );
 });
 
 describe( 'labels option', function () {
